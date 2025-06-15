@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 
-// var db = "mongodb://localhost:27017/Main?authMechanism=DEFAULT&authSource=admin";
-var db = "mongodb://localhost:27017";
+// Load environment variables
+dotenv.config();
+
+// Get MongoDB URI from environment variables or use default
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/todos";
 
 const connectDb = () => {
   return mongoose
